@@ -23,8 +23,9 @@ ListP = []  #ListP is the list in which all the items/values will be added
 
 while True:
     try:
-        Pj = input("enter the probability of possible outcomes: ")
-
+        Pj_IN = input("enter the probability of possible outcomes: ")
+        Pj = Pj_IN.replace(",", ".")                #check if input contains , if so convert , into .
+        
             #check if input contains / if so convert into a float
         
         if "/" in Pj:                       #make sure the float number will be shown with 2 digit after . in the list
@@ -32,12 +33,11 @@ while True:
             Pj_Value = float(a) / float(b)
             ListP.append(round(Pj_Value, 2))
 
-        #check if input contains % if so convert into a float 
+        #check if input contains % if so convert into a float
             
-        elif "%" in Pj:
+        elif "%" in Pj:          
             Pj_Value = Pj[:Pj.find("%")]
             Pj_Value = float(Pj_Value) / 100
-            print(Pj_Value)
             ListP.append(round(Pj_Value, 2))
 
         #check if empty data has been entered
@@ -57,11 +57,3 @@ while True:
 print("ListP is",ListP)
 InfoContent(ListP)
 entropy(ListP)
-
-#   make sure percentages also wil be accepted by removing % sign and divide by 100
-#   I(xj) = log2(1/p(xj)) = -log2(p(xj))
-#   H(xj) = n som j=1 p(xj)log2(1/p(xj))        n in the formula is in the code the same as len(ListP)
-#   answer should be given as float with 2 digits after .
-#   after empty data show answer
-#   2 ^ Ey / Pj = Pj
-
