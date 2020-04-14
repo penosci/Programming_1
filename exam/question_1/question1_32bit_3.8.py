@@ -4,7 +4,6 @@ def formula(factor):                            #formula used to determine lift
     return lift
 
 def DFactor(weight):                            #check to determine factor
-    global factor
     if weight > 0 and weight < 51:
         factor = 1.0
     if weight > 50 and weight < 81:
